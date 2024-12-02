@@ -1,0 +1,10 @@
+function solve(num, minNum) {
+    while (num >= minNum) {
+        console.log(num);
+        num--;
+    }
+}
+solve(6, 2)
+
+//let x = Number.MIN_VALUE;
+//https://www.w3schools.com/jsref/jsref_min_value.asp#:~:text=JavaScript%20Number%20MIN_VALUE&text=Description-,Number.,a%20value%20of%205e%2D324.
