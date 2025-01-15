@@ -1,5 +1,4 @@
-function solve(){
-    n
+function solve()
   console.log(num)
 }
 hhh
