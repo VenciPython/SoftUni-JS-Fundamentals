@@ -1,40 +1,33 @@
-function bitcoinMining(goldPerDay) {
-    const bitcoinPrice = 11949.16; // Цена на един биткойн в лева
-    const goldPricePerGram = 67.51; // Цена на грам злато в лева
+function solve(shiftGramMining) {
+    let priceBitcoin = 11949.16; 
+    let priceGoldGram = 67.51;  
 
-    let totalMoney = 0; // Общата сума от добитото злато
-    let bitcoinsBought = 0; // Брой купени биткойни
-    let firstBitcoinDay = 0; // Денят на първата покупка на биткойн
+    let myBitcoins = 0;           
+    let totalMoney = 0;          
+    let firstDay = 0;             
 
-    for (let i = 0; i < goldPerDay.length; i++) {
-        let dailyGold = goldPerDay[i];
+    for (let i = 0; i < shiftGramMining.length; i++) {
+        let mining = shiftGramMining[i];
 
-        // Ако денят е трети (започва от 0, така че i + 1 е денят), 30% от златото се краде
         if ((i + 1) % 3 === 0) {
-            dailyGold *= 0.7; // Остава само 70% от златото
+            mining *= 0.70;
         }
 
-        // Добавяме стойността на добитото злато към общите пари
-        totalMoney += dailyGold * goldPricePerGram;
+        totalMoney += mining * priceGoldGram;
 
-        // Купуваме биткойни, ако имаме достатъчно пари
-        while (totalMoney >= bitcoinPrice) {
-            bitcoinsBought++; // Увеличаваме броя на купените биткойни
-            totalMoney -= bitcoinPrice; // Намаляваме наличните пари с цената на биткойн
+        while (totalMoney >= priceBitcoin) {
+            totalMoney -= priceBitcoin;
+            myBitcoins++;
 
-            if (bitcoinsBought === 1) {
-                // Запазваме деня на първата покупка на биткойн
-                firstBitcoinDay = i + 1;
+            if (myBitcoins === 1) {
+                firstDay = i + 1;
             }
         }
     }
 
-    console.log(`Bought bitcoins: ${bitcoinsBought}`);
-    if (bitcoinsBought > 0) {
-        console.log(`Day of the first purchased bitcoin: ${firstBitcoinDay}`);
+    console.log(`Bought bitcoins: ${myBitcoins}`);
+    if (myBitcoins > 0) {
+        console.log(`Day of the first purchased bitcoin: ${firstDay}`);
     }
     console.log(`Left money: ${totalMoney.toFixed(2)} lv.`);
 }
-
-// Пример за тестване
-bitcoinMining([100, 200, 300]);
