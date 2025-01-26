@@ -1,5 +1,9 @@
 function solve(input) {
-    let myInputType = input;
-    console.log(typeof myInputType)
-    console.log(myInputType)
+    if (typeof input === 'string' || typeof input === 'number') {
+        console.log(typeof input);
+        console.log(input);
+    } else {
+        console.log(typeof input);
+        console.log('Parameter is not suitable for printing');
+    }
 }
