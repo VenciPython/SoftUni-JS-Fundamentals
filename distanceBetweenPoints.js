@@ -3,5 +3,5 @@ function solve(x1, y1, x2, y2){
     let deltaX = x1 - x2;
     let deltaY= y1 - y2;
     console.log(Math.sqrt(deltaX * deltaX + deltaY * deltaY));
-
 }
+solve(2, 4, 5, 0)
